@@ -2,8 +2,10 @@
   <div id="app">
     <TheHeader />
     <main id="main">
-      <!-- Parte que muda conforme a rota -->
-      <router-view />
+      <transition mode="out-in">
+        <!-- Parte que muda conforme a rota -->
+        <router-view />
+      </transition>
     </main>
 
     <TheFooter />
