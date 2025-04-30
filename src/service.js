@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://localhost:3000/',
+  baseURL: 'https://localhost:3000',
 });
 
 export const api = {
@@ -12,3 +12,7 @@ export const api = {
     return axiosInstance.post(endpoint, body);
   },
 };
+
+export function getCep(cep) {
+  return axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+}
