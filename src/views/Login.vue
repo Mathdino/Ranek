@@ -24,7 +24,7 @@
 import LoginCriar from '@/components/LoginCriar.vue';
 
 export default {
-  name: 'Login',
+  name: 'LoginRanek',
   components: {
     LoginCriar,
   },
@@ -37,7 +37,10 @@ export default {
     };
   },
   methods: {
-    logar() {},
+    logar() {
+      this.$store.dispatch("getUsuario", this.login.email);
+      this.$router.push({name: "usuario"})
+    },
   },
 };
 </script>

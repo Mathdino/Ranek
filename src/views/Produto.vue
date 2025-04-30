@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import { api } from '@/services/api';
+import api from '@/service.js'
 
 export default {
-  name: 'Produto',
+  name: 'ProdutoRanek',
   props: ['id'],
   data() {
     return {
