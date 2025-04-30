@@ -1,9 +1,18 @@
 <template>
-  <p>Lista de produtos</p>
+  <section>
+    <h2>Adicionar Produto</h2>
+  </section>
 </template>
 
 <script>
-export default {};
+import ProdutoAdicionar from '@/components/ProdutoAdicionar.vue';
+
+export default {
+  name: 'UsuarioProdutos',
+  components: {
+    ProdutoAdicionar,
+  },
+};
 </script>
 
 <style></style>
