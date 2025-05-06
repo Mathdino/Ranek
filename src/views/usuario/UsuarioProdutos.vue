@@ -15,31 +15,46 @@
 </template>
 
 <script>
-import ProdutoAdicionar from '@/components/ProdutoAdicionar.vue';
-import ProdutoItem from '@/components/ProdutoItem.vue'
-import {mapState, mapActions} from "vuex";
+import ProdutoAdicionar from "@/components/ProdutoAdicionar.vue";
+import ProdutoItem from "@/components/ProdutoItem.vue";
+import { mapState, mapActions } from "vuex";
+import { api } from "@/services.js";
 
 export default {
-  name: 'UsuarioProdutos',
+  name: "UsuarioProdutos",
   components: {
     ProdutoAdicionar,
-    ProdutoItem,
+    ProdutoItem
   },
-  computed:{
+  computed: {
     ...mapState(["login", "usuario", "usuario_produtos"])
   },
   methods: {
-    ...mapActions(["getUsuarioProdutos"])
-  },
-  watch:{
-    login(){
-    this.getUsuarioProdutos();
+    ...mapActions(["getUsuarioProdutos"]),
+    deletarProduto(id) {
+      const confirmar = window.confirm("Deseja remover este produto?");
+      if (confirmar) {
+        api
+          .delete(`/produto/${id}`)
+          .then(() => {
+            this.getUsuarioProdutos();
+          })
+          .catch(error => {
+            console.log(error.reponse);
+          });
+      }
     }
   },
-  created(){
-    if(this.login){
-    this.getUsuarioProdutos();
+  watch: {
+    login() {
+      this.getUsuarioProdutos();
     }
+  },
+  created() {
+    if (this.login) {
+      this.getUsuarioProdutos();
+    }
+    document.title = "Usuário";
   }
 };
 </script>
@@ -73,4 +88,3 @@ h2 {
   border: none;
 }
 </style>
-
