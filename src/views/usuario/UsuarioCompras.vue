@@ -17,7 +17,7 @@
 
 <script>
 import ProdutoItem from "@/components/ProdutoItem.vue";
-import { api } from "@/services.js";
+import { api } from "@/service.js";
 import { mapState } from "vuex";
 
 export default {
@@ -66,4 +66,3 @@ h2 {
   margin-bottom: 20px;
 }
 </style>
-

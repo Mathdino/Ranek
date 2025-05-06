@@ -1,29 +1,29 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import PaginaCarregando from '@/components/PaginaCarregando.vue';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import PaginaCarregando from "@/components/PaginaCarregando.vue";
+import ErroNotificacao from "@/components/ErroNotificacao.vue";
 
 Vue.config.productionTip = false;
 
-// Componente para exibir uma mensagem de carregamento
-Vue.component('PaginaCarregando', PaginaCarregando);
+Vue.component("PaginaCarregando", PaginaCarregando);
+Vue.component("ErroNotificacao", ErroNotificacao);
 
-// Filtro para formatar o preço do produto
-Vue.filter('numeroPreco', (valor) => {
+Vue.filter("numeroPreco", valor => {
   valor = Number(valor);
   if (!isNaN(valor)) {
-    return valor.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
+    return valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
     });
   } else {
-    return '';
+    return "";
   }
 });
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-}).$mount('#app');
+  render: h => h(App)
+}).$mount("#app");

@@ -10,7 +10,7 @@
 
 <script>
 import UsuarioForm from "@/components/UsuarioForm.vue";
-import { api } from "@/services.js";
+import { api } from "@/service.js";
 import { mapState } from "vuex";
 
 export default {

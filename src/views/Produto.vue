@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import { api } from "@/services.js";
+import { api } from "@/service.js";
 import FinalizarCompra from "@/components/FinalizarCompra.vue";
 
 export default {
-  name: "Produtos",
+  name: "ProdutoRanek",
   props: ["id"],
   components: {
     FinalizarCompra

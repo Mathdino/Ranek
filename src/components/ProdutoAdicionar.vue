@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { api } from "@/services.js";
+import { api } from "@/service.js";
 
 export default {
   name: "ProdutoAdicionar",

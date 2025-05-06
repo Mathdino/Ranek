@@ -1,18 +1,7 @@
 <template>
   <form>
-    <input
-      type="text"
-      name="busca"
-      id="busca"
-      v-model="busca"
-      placeholder="Buscar produto ..."
-    />
-    <input
-      type="submit"
-      value="Buscar"
-      id="lupa"
-      @click.prevent="buscarProdutos"
-    />
+    <input name="busca" id="busca" type="text" v-model="busca" placeholder="Buscar...">
+    <input type="submit" id="lupa" value="Buscar" @click.prevent="buscarProdutos">
   </form>
 </template>
 
@@ -20,14 +9,14 @@
 export default {
   data() {
     return {
-      busca: '',
+      busca: ""
     };
   },
   methods: {
     buscarProdutos() {
       this.$router.push({ query: { q: this.busca } });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -53,7 +42,7 @@ form {
 #lupa {
   width: 62px;
   height: 62px;
-  background: url('../assets/search.svg') no-repeat center center;
+  background: url("../assets/search.svg") no-repeat center center;
   text-indent: -150px;
   border: none;
   cursor: pointer;

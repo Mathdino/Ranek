@@ -1,21 +1,24 @@
 <template>
   <section>
     <h1>👍 Compre ou Venda 👎</h1>
-    <ProdutosBuscar />
-    <ProdutosLista />
+    <ProdutosBuscar/>
+    <ProdutosLista/>
   </section>
 </template>
 
 <script>
-import ProdutosBuscar from '@/components/ProdutosBuscar.vue';
-import ProdutosLista from '@/components/ProdutosLista.vue';
+import ProdutosBuscar from "@/components/ProdutosBuscar.vue";
+import ProdutosLista from "@/components/ProdutosLista.vue";
 
 export default {
-  name: 'homeRanek',
+  name: "HomeRanek",
   components: {
     ProdutosBuscar,
-    ProdutosLista,
+    ProdutosLista
   },
+  created() {
+    document.title = "Ranek";
+  }
 };
 </script>
 
@@ -27,3 +30,4 @@ h1 {
   text-align: center;
 }
 </style>
+

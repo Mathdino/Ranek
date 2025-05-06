@@ -28,7 +28,7 @@
 
 <script>
 import { mapFields } from "@/helpers.js";
-import { getCep } from "@/services.js";
+import { getCep } from "@/service.js";
 
 export default {
   computed: {

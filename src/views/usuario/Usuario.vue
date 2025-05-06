@@ -3,39 +3,40 @@
     <nav class="sidenav">
       <ul>
         <li>
-          <router-link :to="{ name: 'usuario' }">Produtos</router-link>
+          <router-link :to="{name: 'usuario'}">Produtos</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'compras' }">Compras</router-link>
+          <router-link :to="{name: 'compras'}">Compras</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'vendas' }">Vendas</router-link>
+          <router-link :to="{name: 'vendas'}">Vendas</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'usuario-editar' }"
-            >Editar Usuário</router-link
-          >
+          <router-link :to="{name: 'usuario-editar'}">Editar Usuário</router-link>
         </li>
         <li>
           <button @click="deslogar">Deslogar</button>
         </li>
       </ul>
     </nav>
-    <transition mode="in-out">
-      <router-link></router-link>
+    <transition mode="out-in">
+      <router-view></router-view>
     </transition>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'UsuarioRanek',
+  name: "UsuarioRanek",
   methods: {
     deslogar() {
-      this.$store.dispatch('deslogarUsuario');
-      this.$router.push('/login');
-    },
+      this.$store.dispatch("deslogarUsuario");
+      this.$router.push("/login");
+    }
   },
+  created() {
+    document.title = "Usuário";
+  }
 };
 </script>
 
@@ -77,7 +78,7 @@ export default {
   width: 100%;
   font-size: 1rem;
   text-align: left;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
 </style>

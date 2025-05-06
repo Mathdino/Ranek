@@ -1,31 +1,41 @@
 <template>
   <div id="app">
-    <TheHeader />
+    <TheHeader/>
     <main id="main">
       <transition mode="out-in">
-        <!-- Parte que muda conforme a rota -->
-        <router-view />
+        <router-view/>
       </transition>
     </main>
-
-    <TheFooter />
+    <TheFooter/>
   </div>
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader.vue';
-import TheFooter from '@/components/TheFooter.vue';
+import TheHeader from "@/components/TheHeader.vue";
+import TheFooter from "@/components/TheFooter.vue";
+import { api } from "@/service.js";
 
 export default {
   components: {
     TheHeader,
-    TheFooter,
+    TheFooter
   },
+  created() {
+    if (window.localStorage.token) {
+      api
+        .validateToken()
+        .then(() => {
+          this.$store.dispatch("getUsuario");
+        })
+        .catch(() => {
+          window.localStorage.removeItem("token");
+        });
+    }
+  }
 };
 </script>
 
 <style>
-/*Estilos globais*/
 * {
   box-sizing: border-box;
 }
@@ -45,9 +55,9 @@ ul {
 }
 
 body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #345;
-  background: url('./assets/pattern.svg') repeat top;
+  background: url("./assets/pattern.svg") repeat top;
 }
 
 a {
@@ -59,6 +69,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
 .btn {
   display: block;
   padding: 10px 30px;
@@ -70,7 +81,7 @@ img {
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
   transition: all 0.3s;
   border: none;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
 
@@ -78,6 +89,7 @@ img {
   background: #65d;
   transform: scale(1.1);
 }
+
 .btn-disabled,
 .btn-disabled:hover {
   background: #bbc;
@@ -91,8 +103,9 @@ img {
 }
 
 #main {
-  flex: 1; /* Ocupa todo o espaço disponível, para que o footer fique no final */
+  flex: 1;
 }
+
 label {
   margin-bottom: 5px;
 }
@@ -105,7 +118,7 @@ textarea {
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   transition: all 0.3s;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -118,6 +131,7 @@ textarea:focus {
   box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
   border-color: #87f;
 }
+
 .v-enter,
 .v-leave-to {
   opacity: 0;
