@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost/ranek/wp-json';
+const url = 'http://ranekapilocal.local/wp-json';
 
 const axiosInstance = axios.create({
   baseURL: url + '/api',
